@@ -21,6 +21,11 @@ app.get('/', (req:Request, res:Response) => {
   console.log('Hello')
 });
 
+const testapi = require("./Routes/test")
+
+
+app.use('/api/',testapi)
+
 
 app.listen(port, () => {
   console.log(`Server is running on port tt ${process.env.PORT}`);

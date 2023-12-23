@@ -1,0 +1,31 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product 1",
+      "price": 29.99,
+      "category": "Electronics",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "stock": 100,
+      "imageLink": "https://picsum.photos/200"
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "price": 49.99,
+      "category": "Clothing",
+      "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "stock": 50,
+      "imageLink": "https://picsum.photos/200"
+    },
+    {
+      "id": 3,
+      "name": "Product 3",
+      "price": 19.99,
+      "category": "Home & Kitchen",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "stock": 75,
+      "imageLink": "https://picsum.photos/200"
+    }
+  ]
+}
