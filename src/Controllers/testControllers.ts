@@ -34,11 +34,11 @@ exports.listtest = async (req:Request, res:Response) => {
 
   })};
 
-  exports.listtest = async (req:Request, res:Response) => {
+  exports.createtest = async (req:Request, res:Response) => {
         const {name } = req.body
         console.log('req.body.name =',{name})
         res.status(200).json({
-            message: 'create',
+            message: 'create testapi',
             data: req.body.name,
           });
    };

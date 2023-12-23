@@ -9,6 +9,6 @@ const {
   } = require("../Controllers/testControllers");
 
   router.get("/test",  listtest);
-  router.post("/test",  listtest);
+  router.post("/test",  createtest);
 
 module.exports = router;
