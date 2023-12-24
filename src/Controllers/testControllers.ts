@@ -1,51 +1,104 @@
 import express, { Application, Request, Response } from 'express';
-
-
-
-
-
+import {TestmodeModel} from '../Models/test'
+import { v4 as uuidv4 } from 'uuid';
+import slugify from 'slugify';
 exports.listtest = async (req:Request, res:Response) => {
-
-
-        
-            res.status(200).json({
-              message: 'listproducts',
-              data:  'sucessData'
-            });        
-  };
-
-  exports.createtest = async (req:Request, res:Response) => {
-        const {name } = req.body
-        console.log('req.body.name =',{name})
-        res.status(200).json({
-            message: 'create testapi',
-            data: req.body.name,
-          });
+try{
+  const listdatamodtest:any =await TestmodeModel.find({}).exec()
+  res.status(200).json({
+    message: 'listdatamodtest',
+    ctx:'api สร้างเพื่อทดสอบเท่านั้น',
+    data:  listdatamodtest
+  });   
+}catch(err){
+  res.status(500).json({
+    message: 'listdatamodtest',
+    ctx:'api สร้างเพื่อทดสอบเท่านั้น',
+    data:  'Server Test Error!!!'
+  }); 
+}             
+};
+exports.createtest = async (req:Request, res:Response) => {        
+    try{
+      const inputDataTest:any = req.body
+       const id:string = uuidv4();
+      inputDataTest.id = id;
+      
+      const createData:any =await new TestmodeModel(inputDataTest).save()
+      res.status(201).json({
+        message: 'Create-datamodtest',
+        ctx:'api สร้างเพื่อทดสอบเท่านั้น',
+        data:  createData
+      });   
+    }catch(err){
+      res.status(500).json({
+        message: 'Create-datamodtest',
+        ctx:'api สร้างเพื่อทดสอบเท่านั้น',
+        data:  'Server Test Error!!!'
+      }); 
+    }
    };
-
-   exports.edittest = async (req:Request, res:Response) => {
-    const id = req.params.id
-    console.log('req.body.id =',{id})
-    res.status(200).json({
-        message: 'update testapi',
-        data: id,
-      });
+exports.edittest = async (req:Request, res:Response) => {
+    
+    try{
+      const id:string = req.params.id
+      const updateDataInput:any =req.body
+      const updateDatatest = await TestmodeModel.findOneAndUpdate(
+        { id: id },
+        updateDataInput,
+        { new: true }
+      ).exec();
+      res.status(200).json({
+        message: 'Update-datamodtest',
+        ctx:'api สร้างเพื่อทดสอบเท่านั้น',
+        data:  updateDatatest
+      });   
+  
+    }catch(err){
+      res.status(500).json({
+        message: 'Update-datamodtest',
+        ctx:'api สร้างเพื่อทดสอบเท่านั้น',
+        data:  'Server Test Error!!!'
+      }); 
+    }
+    
 };
 
 exports.deletetest = async (req:Request, res:Response) => {
-  const id = req.params.id
-  console.log('req.body.id =',{id})
-  res.status(200).json({
-      message: 'softdelete testapi',
-      data: id,
-    });
+  
+  try{
+    const id:string = req.params.id
+    const {isDelete}:any = req.body
+    if(isDelete === true){
+      const deleteDatatest = await TestmodeModel.findByIdAndUpdate(
+        { _id: id },
+        
+        { isDelete: false }
+      ).exec();
+      res.status(200).json({
+        message: 'delete-datamodtest',
+        ctx:'api สร้างเพื่อทดสอบเท่านั้น',
+        data:  deleteDatatest
+      });   
+    }else{
+      res.status(400).json({
+        message: 'delete-datamodtest',
+        ctx:'api สร้างเพื่อทดสอบเท่านั้น',
+        data:  'the isDelete no data'
+      }); 
+    }
+
+  }catch(err){
+    res.status(500).json({
+      message: 'delete-datamodtest',
+      ctx:'api สร้างเพื่อทดสอบเท่านั้น',
+      data:  'Server Test Error!!!'
+    }); 
+  }
+  // if( active === false){
+  //   console.log('active = false')
+  // }else{
+  //   console.log('active = true')
+  // }
 };
 
-exports.harddeletetest = async (req:Request, res:Response) => {
-  const id = req.params.id
-  console.log('req.body.id =',{id})
-  res.status(200).json({
-      message: 'harddelete testapi',
-      data: id,
-    });
-};

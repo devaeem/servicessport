@@ -8,12 +8,12 @@ const {
     createtest,
     edittest,
     deletetest,
-    harddeletetest
+    
   } = require("../Controllers/testControllers");
 
   router.get("/test",  listtest);
   router.post("/test",  createtest);
   router.put("/test/:id",  edittest);
-  router.put("/testsoftdelete/:id",  deletetest);
-  router.delete("/test/:id", harddeletetest);
+  router.put("/testdelete/:id",  deletetest);
+  //router.delete("/test/:id", harddeletetest);
 module.exports = router;
