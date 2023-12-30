@@ -25,10 +25,13 @@ app.get('/', (req:Request, res:Response) => {
   console.log('Hello')
 });
 const testapi = require("./Routes/test")
+const category = require("./Routes/category")
+const subcategory = require("./Routes/subcategory")
 
 
 app.use('/api/',testapi)
-
+app.use('/api/',category)
+app.use('/api/',subcategory)
 
 app.listen(port, () => {
   console.log(`Server is running on port tt ${process.env.PORT}`);
