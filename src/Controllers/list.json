@@ -27,5 +27,32 @@
       "stock": 75,
       "imageLink": "https://picsum.photos/200"
     }
+    {
+      "id": 3,
+      "name": "Product 3",
+      "price": 19.99,
+      "category": "Home & Kitchen",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "stock": 75,
+      "imageLink": "https://picsum.photos/200"
+    }
+    {
+      "id": 3,
+      "name": "Product 3",
+      "price": 19.99,
+      "category": "Home & Kitchen",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "stock": 75,
+      "imageLink": "https://picsum.photos/200"
+    }
+    {
+      "id": 3,
+      "name": "Product 3",
+      "price": 19.99,
+      "category": "Home & Kitchen",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "stock": 75,
+      "imageLink": "https://picsum.photos/200"
+    }
   ]
 }
