@@ -16,7 +16,7 @@ require('dotenv').config()
 
 
 
-const port:Number = parseInt(process.env.PORT || '3001', 10);
+const port:Number = 5431;
 
 connectToDatabase();
 
