@@ -1,9 +1,11 @@
 import express, { Application, Request, Response } from 'express';
 import {CategoryModel} from '../Models/category'
 import { v4 as uuidv4 } from 'uuid';
+import {Category} from '../interface/interface'
+
 exports.listcategory = async (req:Request, res:Response) => {
 try{
-  const catlist:any =await CategoryModel.find()
+  const catList: Category[]  =await CategoryModel.find()
   .populate({
     path: "subcategory",
     select: "-active -isDelete"
@@ -13,12 +15,13 @@ try{
 
   res.status(200).json({
     message: 'listdatamodtest',
-    data:  catlist
+    data:  catList
   });   
-}catch(err){
+}catch(err:any){
   res.status(500).json({
     message: 'listdatamodtest',
     ctx:'api สร้างเพื่อทดสอบเท่านั้น',
+    error: err.message,
     data:  'Server Test Error!!!'
   }); 
 }             
